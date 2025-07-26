@@ -1,47 +1,13 @@
 ﻿# Steam API - Pipeline de Datos y Caché Inteligente
 Pipeline ETL completo con API REST, autenticación Firebase, caché Redis inteligente y despliegue en Azure Container Apps
 
-#Características
+# Características
 
 ✅ Pipeline ETL con Azure Data Factory (10,000+ registros)
 ✅ API REST con FastAPI y documentación automática
-✅ Autenticación Firebase con JWT tokens
+✅ Autenticación Firebase
 ✅ Caché inteligente Redis con invalidación automática
 ✅ Monitoreo Application Insights integrado
 ✅ Containerización Docker + Azure Container Apps
 ✅ Performance 95% mejora en tiempo de respuesta
 
- # Arquitectura
-┌─────────────┐    ┌──────────────┐    ┌─────────────────┐
-│   Kaggle    │───▶│ Azure Blob   │───▶│ Azure Data      │
-│   Dataset   │    │   Storage    │    │   Factory       │
-└─────────────┘    └──────────────┘    └─────────────────┘
-                                                   │
-┌─────────────┐    ┌──────────────┐    ┌─────────────────┐
-│   Client    │◀───│    FastAPI   │◀───│  Azure SQL      │
-│ Requests    │    │   Container  │    │   Database      │
-└─────────────┘    └──────────────┘    └─────────────────┘
-                          │
-                   ┌──────────────┐    ┌─────────────────┐
-                   │    Redis     │    │   Firebase      │
-                   │    Cache     │    │     Auth        │
-                   └──────────────┘    └─────────────────┘
-#Estructura del Proyecto
-steam-api/
-├── app/
-│   ├── controllers/          # Endpoints y lógica de negocio
-│   │   ├── auth.py          # Autenticación Firebase
-│   │   └── catalog.py       # CRUD del catálogo
-│   ├── models/              # Modelos de base de datos
-│   │   ├── user.py          # Modelo Usuario
-│   │   └── game.py          # Modelo Juego
-│   ├── utils/               # Utilidades
-│   │   ├── cache.py         # Lógica Redis
-│   │   ├── database.py      # Conexión BD
-│   │   └── firebase.py      # Configuración Firebase
-│   └── main.py              # Aplicación principal
-├── Dockerfile               # Containerización
-├── requirements.txt         # Dependencias Python
-├── .env.example            # Variables de entorno ejemplo
-└── README.md               # Este archivo
-                   
